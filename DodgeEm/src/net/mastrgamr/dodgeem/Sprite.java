@@ -4,12 +4,16 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
-import java.util.Vector;
-
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
+/**
+ * This is the base class that all sprites will extend from. All sprites will be loaded,
+ * drawn, and have bounding boxes to them. Instead of repeating this in all the classes
+ * I'll just extend them from this class. This class will never be called during the game.
+ * @author mastrgamr
+ *
+ */
 public abstract class Sprite {
 	
 	protected BufferedImage img;
@@ -18,7 +22,6 @@ public abstract class Sprite {
 	protected int speed;
 	protected int speedX;
 	protected int speedY;
-	protected Vector<Sprite> spriteList = new Vector<Sprite>();
 	
 	public Sprite(){ }
 	
@@ -41,6 +44,7 @@ public abstract class Sprite {
 		loadImg(fileLoc);
 	}
 	
+	//Loads an image to the BufferedImage variable.
 	public void loadImg(String fileLoc){
 		try {
 			img = ImageIO.read(new File(fileLoc));
@@ -50,6 +54,7 @@ public abstract class Sprite {
 		}
 	}
 	
+	//Bounding box method for collision detection.
 	public Rectangle rect(){
 		return new Rectangle(this.x, this.y, this.getImage().getWidth(), this.getImage().getHeight());
 	}

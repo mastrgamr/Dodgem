@@ -2,6 +2,11 @@ package net.mastrgamr.dodgeem;
 
 import java.awt.event.KeyEvent;
 
+/**
+ * This class controls any sprite that will be controlled by the user.
+ * @author mastrgamr
+ *
+ */
 public class ControlledSprite extends Sprite {
 	
 	public ControlledSprite(){ }
